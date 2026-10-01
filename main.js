@@ -1,16 +1,12 @@
-﻿document.querySelectorAll('[data-wa]').forEach(link => {
+document.querySelectorAll('[data-wa]').forEach(link => {
   link.href = 'https://wa.me/5591993014679?text=' + encodeURIComponent(link.dataset.wa);
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
 });
 const lpLink = document.getElementById('lp-link');
-const lpUrl = import.meta.env.VITE_LP_URL || (import.meta.env.DEV ? 'http://127.0.0.1:5174/' : '');
+const lpUrl = import.meta.env.VITE_LP_URL;
 if (lpUrl) {
   lpLink.href = lpUrl;
-  lpLink.target = '_blank';
-  lpLink.rel = 'noopener noreferrer';
-} else {
-  lpLink.remove();
 }
 const track = document.querySelector('.carousel-track');
 const slides = [...document.querySelectorAll('.carousel-slide')];
